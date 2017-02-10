@@ -30,4 +30,4 @@ app.listen(process.env.PORT || 8080, () => {
     console.log(`Express running on port ${process.env.PORT || 8080}`);
 });
 
-module.exports = {app}
+module.exports = {app};
