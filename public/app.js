@@ -2,7 +2,14 @@ $('.document-form').submit(function (event) {
     event.preventDefault();
 
     var form = {
-        title: $('input').val()
+      firstName:$('#fname').val(),
+      lastName: $('#lname').val(),
+      middleName: $('#mname').val(),
+      suffix: $('#suffix').val(),
+      socialSecurity: $('#socialsec').val(),
+      address:$('#address').val(),
+      telephone:$('#phone').val(),
+      heir: $('#heir').val()
     };
 
     $.ajax({
@@ -12,7 +19,7 @@ $('.document-form').submit(function (event) {
         })
         .done(function (data) {
 
-            $('.box').append(`<h1>` + data.title);
+            $('.box').append(`<h1>` + JSON.stringify(form));
 
         }).fail(function (error) {
             console.log(error);
