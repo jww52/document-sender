@@ -36,7 +36,7 @@ app.post('/document', (req, res, next) => {
     suffix: req.body.suffix,
     socialSecurity: req.body.socialSecurity,
     address:req.body.address,
-    telephone:req.body.telepone,
+    telephone:req.body.telephone,
     heir: req.body.heir
   });
     try {
