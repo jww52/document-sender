@@ -1,18 +1,20 @@
 const express = require('express');
 const path = require('path');
-const mailer = require('nodemailer');
+const nodemailer = require('nodemailer');
 const Docxtemplater = require('docxtemplater');
 const JSZip = require('jszip');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const fs = require('fs');
+const morgan = require('morgan');
+require('dotenv').config();
 
+const {ALERT_FROM_EMAIL, ALERT_FROM_NAME, ALERT_TO_EMAIL} = process.env;
+const {sendEmail} = require('./emailer');
 let app = express();
+let content = fs.readFileSync(path.resolve(__dirname, 'docxGen.docx'));
 
-var content = fs
-    .readFileSync(path.resolve(__dirname, 'docxGen.docx'), 'binary');
-
-var zip = new JSZip(content);
+let zip = new JSZip(content);
 
 app.use(express.static('public'));
 app.use('/libs', express.static('./node_modules'));
@@ -22,8 +24,9 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.post('/document', (req, res, next) => {
+  let estateDoc = "";
   res.status(201).json(req.body);
-  var doc = new Docxtemplater();
+  let doc = new Docxtemplater();
   doc.loadZip(zip);
 
   doc.setData({
@@ -51,8 +54,22 @@ app.post('/document', (req, res, next) => {
     }
     var buf = doc.getZip()
                  .generate({type: 'nodebuffer'});
-    fs.writeFileSync(path.resolve('../doc-sender-catcher', 'output.docx'), buf);
-});
+    fs.writeFileSync(path.resolve(__dirname + '/doc-sender-catcher', 'output.docx'), buf)
+
+    //nodemailer
+
+      let emailData = {
+      from: ALERT_FROM_EMAIL,
+      to: ALERT_TO_EMAIL,
+      subject: `ESTATE DOCUMENT FROM: ${req.body.firstName} ${req.body.lastName}`,
+      attachments: [{
+        filename: 'output.docx',
+        content: fs.createReadStream(__dirname + '/doc-sender-catcher/output.docx')
+      }]
+    };
+    sendEmail(emailData);
+  });
+
 
 app.get('*', (req, res) => {
     res.status(200).sendFile(path.join(__dirname, './public/index.html'));
