@@ -13,6 +13,7 @@ let zip = new JSZip(content);
 
     let doc = new Docxtemplater();
     doc.loadZip(zip);
+
     doc.setData({
       firstName: data.firstName,
       lastName: data.lastName,
@@ -40,6 +41,5 @@ let zip = new JSZip(content);
                    .generate({type: 'nodebuffer'});
       fs.writeFileSync(path.resolve(__dirname + '/doc-sender-catcher', 'output.docx'), buf)
     };
-estateDoc();
 
 module.exports = {estateDoc};
