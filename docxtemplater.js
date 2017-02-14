@@ -5,7 +5,7 @@ const fs = require('fs');
 const path = require('path');
 const bodyParser = require('body-parser');
 
-function estateDoc (data) {
+function estateWordDoc (data) {
 
 let content = fs.readFileSync(path.resolve(__dirname, 'docxGen.docx'), 'binary');
 
@@ -42,4 +42,4 @@ let zip = new JSZip(content);
       fs.writeFileSync(path.resolve(__dirname + '/doc-sender-catcher', 'output.docx'), buf)
     };
 
-module.exports = {estateDoc};
+module.exports = {estateWordDoc};

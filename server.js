@@ -4,14 +4,21 @@ const nodemailer = require('nodemailer');
 const Docxtemplater = require('docxtemplater');
 const JSZip = require('jszip');
 const bodyParser = require('body-parser');
-const mongoose = require('mongoose');
 const fs = require('fs');
 const morgan = require('morgan');
+const _ = require('lodash');
 require('dotenv').config();
 
+const {mongoose} = require('./db/mongoose');
+const {ObjectId} = require('mongodb');
 const {ALERT_FROM_EMAIL, ALERT_FROM_NAME, ALERT_TO_EMAIL} = process.env;
 const {sendEmail} = require('./emailer');
-const {estateDoc} = require('./docxtemplater');
+const {estateWordDoc} = require('./docxtemplater');
+const {EstateDoc} = require('./models/draft');
+const {PORT, DATABASE_URL} = require('./config');
+
+mongoose.Promise = global.Promise;
+
 let app = express();
 
 app.use(express.static('public'));
@@ -22,14 +29,29 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.post('/document', (req, res, next) => {
-
-  res.status(201).json(req.body);
-
-  estateDoc(req.body);
-
-
+  //schema start
+  EstateDoc
+    .create({
+      name: {
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        middleName: req.body.middleName,
+        suffix: req.body.suffix
+        },
+      socialSecurity: req.body.socialSecurity,
+      address: req.body.address,
+      telephone: req.body.telephone,
+      heir: req.body.heir
+    })
+    .then(
+      estateDoc => res.status(201).json(req.body))
+    .catch(err => {
+      console.error(err);
+      res.status(500).json({message: 'Internal server error'});
+    });
+  //schema end
+  estateWordDoc(req.body);
     //nodemailer
-
       let emailData = {
       from: ALERT_FROM_EMAIL,
       to: ALERT_TO_EMAIL,
@@ -42,13 +64,43 @@ app.post('/document', (req, res, next) => {
     sendEmail(emailData);
   });
 
+  app.get('*', (req, res) => {
+      res.status(200).sendFile(path.join(__dirname, './public/index.html'));
+  });
 
-app.get('*', (req, res) => {
-    res.status(200).sendFile(path.join(__dirname, './public/index.html'));
-});
+// app.get('/document/:id', (req, res) => {
+//   var id = req.params.id;
+//   //validate id using isValid
+//       findById(req.params.id)
+//       .then((estateDoc) => {res.json(estateDoc)})
+//       .catch(err => {
+//         console.error(err);
+//           res.status(500).json({message: 'Internal server error'})
+//       });
+  // });
 
-app.listen(process.env.PORT || 8080, () => {
-    console.log(`Express running on port ${process.env.PORT || 8080}`);
-});
+  let server;
 
+  function runServer(databaseUrl=DATABASE_URL, port=PORT) {
+    return new Promise((resolve, reject) => {
+      mongoose.connect(databaseUrl, err => {
+        if (err) {
+          return reject(err);
+        }
+
+        app.listen(port, () => {
+          console.log(`Your app is listening on port ${port}`);
+          resolve();
+        })
+        .on('error', err => {
+          mongoose.disconnect();
+          reject(err);
+        });
+      });
+    });
+  }
+
+  if (require.main === module) {
+  runServer().catch(err => console.error(err));
+};
 module.exports = {app};

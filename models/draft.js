@@ -13,4 +13,6 @@ const draftSchema = mongoose.Schema({
   heir: {type: String, required: true}
 }); //draftSchema
 
-const Draft = mongoose.model('Draft', draftSchema);
+const EstateDoc = mongoose.model('estateDocs', draftSchema);
+
+module.exports = {EstateDoc}
