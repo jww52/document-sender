@@ -64,20 +64,23 @@ app.post('/document', (req, res, next) => {
     sendEmail(emailData);
   });
 
-  app.get('*', (req, res) => {
+  app.get('/', (req, res) => {
       res.status(200).sendFile(path.join(__dirname, './public/index.html'));
   });
 
-// app.get('/document/:id', (req, res) => {
-//   var id = req.params.id;
-//   //validate id using isValid
-//       findById(req.params.id)
-//       .then((estateDoc) => {res.json(estateDoc)})
-//       .catch(err => {
-//         console.error(err);
-//           res.status(500).json({message: 'Internal server error'})
-//       });
-  // });
+app.get('/document/:id', (req, res) => {
+  var id = req.params.id;
+  //validate id using isValid
+  EstateDoc
+      .findById(req.params.id)
+      .then((estatedoc) => {
+        res.send(estatedoc);
+      })
+      .catch(err => {
+        console.error(err);
+          res.status(500).json({message: 'Internal server error'})
+      });
+  });
 
   let server;
 
