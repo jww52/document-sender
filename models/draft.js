@@ -7,9 +7,9 @@ const draftSchema = mongoose.Schema({
     middleName: {type: String, required: false},
     suffix: {type: String, required: false},
     },
-  socialSecurity: {type: Number, required: true},
+  socialSecurity: {type: String, required: true},
   address:{type: String, required: true},
-  telephone:{type: Number, required: true},
+  telephone:{type: String, required: true},
   heir: {type: String, required: true}
 }); //draftSchema
 

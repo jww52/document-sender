@@ -46,22 +46,21 @@ app.post('/document', (req, res, next) => {
     .then(
       estateDoc => res.status(201).json(req.body))
     .catch(err => {
-      console.error(err);
-      res.status(500).json({message: 'Internal server error'});
+      res.status(500).json(err);
     });
   //schema end
-  estateWordDoc(req.body);
-    //nodemailer
-      let emailData = {
-      from: ALERT_FROM_EMAIL,
-      to: ALERT_TO_EMAIL,
-      subject: `ESTATE DOCUMENT FROM: ${req.body.firstName} ${req.body.lastName}`,
-      attachments: [{
-        filename: 'output.docx',
-        content: fs.createReadStream(__dirname + '/doc-sender-catcher/output.docx')
-      }]
-    };
-    sendEmail(emailData);
+  // estateWordDoc(req.body);
+  //   //nodemailer
+  //     let emailData = {
+  //     from: ALERT_FROM_EMAIL,
+  //     to: ALERT_TO_EMAIL,
+  //     subject: `ESTATE DOCUMENT FROM: ${req.body.firstName} ${req.body.lastName}`,
+  //     attachments: [{
+  //       filename: 'output.docx',
+  //       content: fs.createReadStream(__dirname + '/doc-sender-catcher/output.docx')
+  //     }]
+  //   };
+  //   sendEmail(emailData);
   });
 
   app.get('/', (req, res) => {
@@ -81,6 +80,38 @@ app.get('/document/:id', (req, res) => {
           res.status(500).json({message: 'Internal server error'})
       });
   });
+
+  app.put('/document/:id', (req, res) => {
+  if (!(req.params.id)) {
+    res.status(400).json({
+      error: 'Request path id and request body id values must match'
+    });
+  }
+
+  const updated = {};
+  const updateableFields = ['name', 'socialSecurity', 'address','telephone','heir'];
+  updateableFields.forEach(field => {
+    if (field in req.body) {
+      updated[field] = req.body[field];
+    }
+  });
+
+  EstateDoc
+    .findByIdAndUpdate(req.params.id, {$set: updated}, {new: true})
+    .exec()
+    .then((estatedoc) => res.status(204).json(estatedoc))
+    .catch(err => res.status(500).json({message: 'Something went wrong'}));
+});
+
+app.delete('/document/:id', (req, res) => {
+  EstateDoc
+    .findByIdAndRemove(req.params.id)
+    .exec()
+    .then(estatedoc => res.status(204).end())
+    .catch(err => res.status(500).json({message: 'Internal server error'}));
+});
+
+
 
   let server;
 
