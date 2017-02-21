@@ -1,37 +1,739 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Estate Document Sender v 0.1</title>
-    <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="css/bootstrap.min.css"/>
-  <!-- <link rel="stylesheet" href="/lib/w3.css"> -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-</head>
-<body>
-
-    <h1>Last Will & Testament</h1>
-    <h2>Please fill this out to prepare for your consultation</h3>
-    <form class="document-form">
-      <h3> Personal Information </h3>
-      First Name: <input class='pi' id='fname' type="text"><br>
-      Last Name: <input class='pi' id='lname' type="text"><br>
-      Middle Name: <input class='pi' id='mname' type="text"><br>
-      suffix: <input class='pi' id='suffix' type="text"><br>
-    <div>
-    Social Security: <input class='pi' id='socialsec' type="text"><br>
-    Address:<input class='pi' id='address' type="text"><br>
-    Telephone:<input class='pi' id='phone' type="text"><br>
-    Heir: <input class='pi' id='heir' type="text"><br>
-    </div>
-        <button>Send Document</button>
-    </form>
-    <div class="box"></div>
-
-<script src="/libs/jquery/dist/jquery.min.js"></script>
-<script src="app.js"></script>
-</body>
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Estate Document Sender v 0.1</title>
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,700">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+      <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
+      <link rel="stylesheet" href="assets/css/form-elements.css">
+      <link rel="stylesheet" href="assets/css/style.css">
+      <link rel="stylesheet" href="assets/css/media-queries.css">
+      <!-- Favicon and touch icons -->
+      <link rel="shortcut icon" href="assets/ico/favicon.png">
+      <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+   </head>
+   <body>
+      <!-- Top menu -->
+      <nav class="navbar navbar-inverse" role="navigation">
+         <div class="container">
+         <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#top-navbar-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html">Estate Document Information</a>
+            <!-- Collect the nav links, forms, and other content for toggling ADD CLAYTON'S LAW FIRM SOCIAL MEDIA INFO-->
+            <div class="collapse navbar-collapse" id="top-navbar-1">
+               <ul class="nav navbar-nav navbar-right">
+                  <li>
+                     <span class="li-text">
+                     Follow us:
+                     </span>
+                     <span class="li-social">
+                     <a href="http://www.facebook.com/pages/Azmindcom/196582707093191" target="_blank"><i class="fa fa-facebook"></i></a>
+                     <a href="http://twitter.com/anli_zaimi" target="_blank"><i class="fa fa-twitter"></i></a>
+                     <a href="https://plus.google.com/101131425868807087570" target="_blank"><i class="fa fa-google-plus"></i></a>
+                     </span>
+                  </li>
+               </ul>
+            </div>
+         </div>
+      </nav>
+      <!-- Description -->
+      <div class="description-container">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-12 description-title">
+                  <h2>ESTATE INFORMATION</h2>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-sm-12 description-text">
+                  <p>
+                     This is a secure process that will create a document emailed to both you and your attorney for use with the consultation.
+                  </p>
+                  <div class="divider-1">. . . . . . . . . . . . . . . .</div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- Multi Step Form -->
+      <div class="msf-container">
+         <div class="container">
+            <div class="row">
+               <div class="col-sm-12 msf-title">
+                  <h3>Fill In The Form</h3>
+                  <p>Please complete the form below to receive a drafted estate document:</p>
+               </div>
+            </div>
+            <div class="row">
+               <div class="col-sm-12 msf-form">
+                  <form role="form" action="" method="post" class="form-inline">
+                  <fieldset>
+                     <h4>Personal Information </h4>
+                     <!-- <span class="step">(Step 1 / 7)</span> FOR USE IN MULTISTEP FORM-->
+                     <h3>Yourself:</h3>
+                     <div class="form-group">
+                        <label for="first-name">First Name:</label><br>
+                        <input type="text" name="first-name" class="first-name form-control" id="fname">
+                     </div>
+                     <div class="form-group">
+                        <label for="last-name">Last Name:</label><br>
+                        <input type="text" name="last-name" class="last-name form-control" id="lname">
+                     </div>
+                     <div class="form-group">
+                        <label for="middle-name">Middle Name:</label><br>
+                        <input type="text" name="middle-name" class="middle-name form-control" id="mname">
+                     </div>
+                     <div class="form-group">
+                        <label for="suffix">Suffix:</label><br>
+                        <input type="text" name="suffix" class="suffix form-control" id="suffix">
+                     </div>
+                     <div class="form-group">
+                        <label for="social-security">Social Security:</label><br>
+                        <input type="text" name="social-security" class="social-security" id="socialsec">
+                     </div>
+                     <div class="form-group">
+                        <label for="address">Address:</label><br>
+                        <input type="text" name="address" class="address form-control" id="address">
+                     </div>
+                     <div class="form-group">
+                        <label for="telephone">Telephone:</label><br>
+                        <input type="text" name="telephone" class="telephone form-control" id="telephone">
+                     </div>
+                     <div class="form-group">
+                        <label for="w-telephone">Work Telephone:</label><br>
+                        <input type="text" name="w-telephone" class="w-telephone form-control" id="w-telephone">
+                     </div>
+                     <div class="form-group">
+                        <label for="dob">Date of Birth:</label><br>
+                        <input type="text" name="dob" class="dob form-control" id="dob">
+                     </div>
+                     <div class="form-group">
+                        <label for="yrsTexas">How long have you lived in Texas?</label><br>
+                        <input type="text" name="yrsTexas" class="yrsTexas form-control" id="yrsTexas">
+                     </div>
+                     <h3>Your Spouse:</h3>
+                     <div class="form-group">
+                        <label for="sp-firstName">First Name:</label><br>
+                        <input type="text" name="sp-firstName" class="first-name form-control" id="sp-firstName">
+                     </div>
+                     <div class="form-group">
+                        <label for="sp-lastName">Last Name:</label><br>
+                        <input type="text" name="sp-lastName" class="last-name form-control" id="sp-lastName">
+                     </div>
+                     <div class="form-group">
+                        <label for="sp-middleName">Middle Name:</label><br>
+                        <input type="text" name="sp-middleName" class="middle-name form-control" id="sp-middleName">
+                     </div>
+                     <div class="form-group">
+                        <label for="sp-socialSecurity">Social Security:</label><br>
+                        <input type="text" name="sp-socialSecurity" class="social-security" id="sp-socialSecurity">
+                     </div>
+                     <div class="form-group">
+                        <label for="address">Address:</label><br>
+                        <input type="text" name="address" class="address form-control" id="sp-address">
+                     </div>
+                     <div class="form-group">
+                        <label for="telephone">Telephone:</label><br>
+                        <input type="text" name="telephone" class="telephone form-control" id="sp-telephone">
+                     </div>
+                     <div class="form-group">
+                        <label for="w-telephone">Work Telephone:</label><br>
+                        <input type="text" name="w-telephone" class="w-telephone form-control" id="sp-w-telephone">
+                     </div>
+                     <div class="form-group">
+                        <label for="dob">Date of Birth:</label><br>
+                        <input type="text" name="dob" class="dob form-control" id="sp-dob">
+                     </div>
+                     <div class="form-group">
+                        <label for="marriageDate">Date of Marriage:</label><br>
+                        <input type="text" name="marriageDate" class="marriageDate form-control" id="marriageDate">
+                     </div>
+                     <h3>Your Children:</h3>
+                     <h2>1. Child</h2>
+                     <div class="form-group">
+                        <label for="fst-child-fname">First Name:</label><br>
+                        <input type="text" name="fst-child-fname" class="fst-child-fname form-control" id="fst-child-fname">
+                     </div>
+                     <div class="form-group">
+                        <label for="fst-child-lastName">Last Name:</label><br>
+                        <input type="text" name="fst-child-lastName" class="last-name form-control" id="fst-child-lastName">
+                     </div>
+                     <div class="form-group">
+                        <label for="fst-child-middleName">Middle Name:</label><br>
+                        <input type="text" name="fst-child-middleName" class="middle-name form-control" id="fst-child-middleName">
+                     </div>
+                     <div class="form-group">
+                        <label for="fst-child-socialSecurity">Social Security:</label><br>
+                        <input type="text" name="fst-child-socialSecurity" class="social-security" id="fst-child-socialSecurity">
+                     </div>
+                     <div class="form-group">
+                        <label for="address">Address:</label><br>
+                        <input type="text" name="address" class="address form-control" id="fst-child-address">
+                     </div>
+                     <div class="form-group">
+                        <label for="telephone">Telephone:</label><br>
+                        <input type="text" name="telephone" class="telephone form-control" id="fst-child-telephone">
+                     </div>
+                     <div class="form-group">
+                        <label for="w-telephone">Work Telephone:</label><br>
+                        <input type="text" name="w-telephone" class="w-telephone form-control" id="fst-child-w-telephone">
+                     </div>
+                     <div class="form-group">
+                        <label for="dob">Date of Birth:</label><br>
+                        <input type="text" name="dob" class="dob form-control" id="fst-child-dob">
+                     </div>
+                     <div class="form-group">
+                        <label for="pob">Place of Birth:</label><br>
+                        <input type="text" name="pob" class="pob form-control" id="fst-child-pob">
+                     </div>
+                     <div class="form-group">
+                        <label for="fst-child-spouse">His or her spouse (if any):</label><br>
+                        <input type="text" name="fst-child-spouse" class="fst-child-spouse form-control" id="fst-child-spouse">
+                     </div>
+                     <div class="form-group">
+                        <label for="fst-child-childrenNum">Number of his or her children (if any): </label><br>
+                        <input type="number" name="fst-child-childrenNum" class="fst-child-childrenNum form-control" id="fst-child-childrenNum">
+                     </div>
+                     <div class="form-group">
+                        <label for="fst-child-chldrnNames">Name(s):</label><br>
+                        <input type="text" name="fst-child-chldrnNames" class="fst-child-chldrnNames" id="fst-child-chldrnNames">
+                     </div>
+                     <div class="form-group">
+                        <label for="fst-child-chldrnAges">Age(s):</label><br>
+                        <input type="text" name="fst-child-chldrnAges" class="fst-child-chldrnAges" id="fst-child-chldrnAges">
+                     </div>
+                     <h2>2. Child</h2>
+                     <div class="form-group">
+                        <label for="secnd-child-fname">First Name:</label><br>
+                        <input type="text" name="secnd-child-fname" class="secnd-child-fname form-control" id="secnd-child-fname">
+                     </div>
+                     <div class="form-group">
+                        <label for="secnd-child-lastName">Last Name:</label><br>
+                        <input type="text" name="secnd-child-lastName" class="last-name form-control" id="secnd-child-lastName">
+                     </div>
+                     <div class="form-group">
+                        <label for="secnd-child-middleName">Middle Name:</label><br>
+                        <input type="text" name="secnd-child-middleName" class="middle-name form-control" id="secnd-child-middleName">
+                     </div>
+                     <div class="form-group">
+                        <label for="secnd-child-socialSecurity">Social Security:</label><br>
+                        <input type="text" name="secnd-child-socialSecurity" class="social-security" id="secnd-child-socialSecurity">
+                     </div>
+                     <div class="form-group">
+                        <label for="address">Address:</label><br>
+                        <input type="text" name="address" class="address form-control" id="secnd-child-address">
+                     </div>
+                     <div class="form-group">
+                        <label for="telephone">Telephone:</label><br>
+                        <input type="text" name="telephone" class="telephone form-control" id="secnd-child-telephone">
+                     </div>
+                     <div class="form-group">
+                        <label for="w-telephone">Work Telephone:</label><br>
+                        <input type="text" name="w-telephone" class="w-telephone form-control" id="secnd-child-w-telephone">
+                     </div>
+                     <div class="form-group">
+                        <label for="dob">Date of Birth:</label><br>
+                        <input type="text" name="dob" class="dob form-control" id="secnd-child-dob">
+                     </div>
+                     <div class="form-group">
+                        <label for="pob">Place of Birth:</label><br>
+                        <input type="text" name="pob" class="pob form-control" id="secnd-child-pob">
+                     </div>
+                     <div class="form-group">
+                        <label for="secnd-child-spouse">His or her spouse (if any):</label><br>
+                        <input type="text" name="secnd-child-spouse" class="secnd-child-spouse form-control" id="secnd-child-spouse">
+                     </div>
+                     <div class="form-group">
+                        <label for="secnd-child-childrenNum">Number of his or her children (if any): </label><br>
+                        <input type="number" name="secnd-child-childrenNum" class="secnd-child-childrenNum form-control" id="secnd-child-childrenNum">
+                     </div>
+                     <div class="form-group">
+                        <label for="secnd-child-chldrnNames">Name(s):</label><br>
+                        <input type="text" name="secnd-child-chldrnNames" class="secnd-child-chldrnNames" id="secnd-child-chldrnNames">
+                     </div>
+                     <div class="form-group">
+                        <label for="secnd-child-chldrnAges">Age(s):</label><br>
+                        <input type="text" name="secnd-child-chldrnAges" class="secnd-child-chldrnAges" id="secnd-child-chldrnAges">
+                     </div>
+                     <h2>3. Child</h2>
+                     <div class="form-group">
+                        <label for="third-child-fname">First Name:</label><br>
+                        <input type="text" name="third-child-fname" class="third-child-fname form-control" id="third-child-fname">
+                     </div>
+                     <div class="form-group">
+                        <label for="third-child-lastName">Last Name:</label><br>
+                        <input type="text" name="third-child-lastName" class="last-name form-control" id="third-child-lastName">
+                     </div>
+                     <div class="form-group">
+                        <label for="third-child-middleName">Middle Name:</label><br>
+                        <input type="text" name="third-child-middleName" class="middle-name form-control" id="third-child-middleName">
+                     </div>
+                     <div class="form-group">
+                        <label for="third-child-socialSecurity">Social Security:</label><br>
+                        <input type="text" name="third-child-socialSecurity" class="social-security" id="third-child-socialSecurity">
+                     </div>
+                     <div class="form-group">
+                        <label for="address">Address:</label><br>
+                        <input type="text" name="address" class="address form-control" id="third-child-address">
+                     </div>
+                     <div class="form-group">
+                        <label for="telephone">Telephone:</label><br>
+                        <input type="text" name="telephone" class="telephone form-control" id="third-child-telephone">
+                     </div>
+                     <div class="form-group">
+                        <label for="w-telephone">Work Telephone:</label><br>
+                        <input type="text" name="w-telephone" class="w-telephone form-control" id="third-child-w-telephone">
+                     </div>
+                     <div class="form-group">
+                        <label for="dob">Date of Birth:</label><br>
+                        <input type="text" name="dob" class="dob form-control" id="third-child-dob">
+                     </div>
+                     <div class="form-group">
+                        <label for="pob">Place of Birth:</label><br>
+                        <input type="text" name="pob" class="pob form-control" id="third-child-pob">
+                     </div>
+                     <div class="form-group">
+                        <label for="third-child-spouse">His or her spouse (if any):</label><br>
+                        <input type="text" name="third-child-spouse" class="third-child-spouse form-control" id="third-child-spouse">
+                     </div>
+                     <div class="form-group">
+                        <label for="third-child-childrenNum">Number of his or her children (if any): </label><br>
+                        <input type="number" name="third-child-childrenNum" class="third-child-childrenNum form-control" id="third-child-childrenNum">
+                     </div>
+                     <div class="form-group">
+                        <label for="third-child-chldrnNames">Name(s):</label><br>
+                        <input type="text" name="third-child-chldrnNames" class="third-child-chldrnNames" id="third-child-chldrnNames">
+                     </div>
+                     <div class="form-group">
+                        <label for="third-child-chldrnAges">Age(s):</label><br>
+                        <input type="text" name="third-child-chldrnAges" class="third-child-chldrnAges" id="third-child-chldrnAges">
+                     </div>
+                     <h4>Additional Personal Information</h4>
+                     <div class="form-group">
+                        <label for="prev-married">Have you previously been married?</label><br>
+                        <input type="text" name="prev-married" class="prev-married form-control" id="prev-married">
+                     </div>
+                     <div class="form-group">
+                        <label for="prev-spouse">If so, name of your former spouse:</label><br>
+                        <input type="text" name="prev-spouse" class="prev-spouse form-control" id="prev-spouse">
+                     </div>
+                     <div class="form-group">
+                        <label for="prev-children">If so, any children of that marriage?</label><br>
+                        <input type="text" name="prev-children" class="prev-children form-control" id="prev-children">
+                     </div>
+                     <div class="form-group">
+                        <label for="prev-terminated">How was the marriage terminated?</label><br>
+                        <input type="text" name="prev-terminated" class="prev-terminated form-control" id="prev-terminated">
+                     </div>
+                     <div class="form-group">
+                        <label for="prev-obligation">Do the circumstances of the termination of your prior marriage place any restrictions or limitations on the disposition of your estate (example: ongoing child support obligations. Etc):</label><br>
+                        <input type="text" name="prev-obligation" class="prev-obligation form-control" id="prev-obligation">
+                     </div>
+                     <div class="form-group">
+                        <label for="additional-childrn">Do you anticipate having (or adopting) any additional children?</label><br>
+                        <input type="text" name="additional-childrn" class="additional-childrn form-control" id="additional-childrn">
+                     </div>
+                     <div class="form-group">
+                        <label for="currentWill">Do you have a Will now?</label><br>
+                        <input type="text" name="currentWill" class="currentWill form-control" id="currentWill">
+                     </div>
+                     <!-- FOR USE IN MULTI STEP FORM MOVED THIS FROM BUTTON ELEMENT _ JW<i class="fa fa-angle-right"></i> -->
+                     <button type="button" class="btn btn-next">Next <i class="fa fa-angle-right"></i></button>
+                  </fieldset>
+                  <fieldset>
+                     <h4>Financial Information</h4>
+                     <!-- <span class="step">(Step 3 / 7)</span> FOR USE IN MULTISTEP FORM-->
+                     <div class="form-group">
+                        <label for="excd600">Does the total value of your estate (including life insurance and property owned by your spouse) exceed $600,000?</label><br>
+                        <input type="text" name="excd600" class="excd600 form-control" id="excd600">
+                     </div>
+                     <div class="form-group">
+                        <label for="ownRealEstate">Do you own your home and/or other real estate?</label><br>
+                        <input type="text" name="ownRealEstate" class="ownRealEstate form-control" id="ownRealEstate">
+                     </div>
+                     <div class="form-group">
+                        <label for="ownStkBnds">Do you own any stocks or bonds? </label><br>
+                        <input type="text" name="ownStkBnds" class="ownStkBnds form-control" id="ownStkBnds">
+                     </div>
+                     <div class="form-group">
+                        <label for="ownDebt1000">Does anyone owe you money (in excess of $1,000)?</label><br>
+                        <input type="text" name="ownDebt1000" class="ownDebt1000 form-control" id="ownDebt1000">
+                     </div>
+                     <div class="form-group">
+                        <label for="lifeInsurance">Do you own any life insurance policies?</label><br>
+                        <input type="text" name="lifeInsurance" class="lifeInsurance form-control" id="lifeInsurance">
+                     </div>
+                     <div class="form-group">
+                        <label for="retirementPlans">Are you or will you be entitled to receive any pension, profit-sharing, or other type of retirement plans?</label><br>
+                        <input type="text" name="retirementPlans" class="retirementPlans form-control" id="retirementPlans">
+                     </div>
+                     <div class="form-group">
+                        <label for="expectInheritance">Do you, your spouse or any of your children have any expectation of inheriting any substantial amount of property from anyone else, such as parents, relatives or friends?</label><br>
+                        <input type="text" name="expectInheritance" class="expectInheritance form-control" id="expectInheritance">
+                     </div>
+                     <div class="form-group">
+                        <label for="majorAssets">Please list your major assets:</label><br>
+                        <input type="text" name="majorAssets" class="majorAssets form-control" id="majorAssets">
+                     </div>
+                     <div class="form-group">
+                        <label for="majorDebts">Please list your major debts:</label><br>
+                        <input type="text" name="majorDebts" class="majorDebts form-control" id="majorDebts">
+                     </div>
+                     <div class="form-group">
+                        <label for="primaryIncome">Please list your primary sources of income:</label><br>
+                        <input type="text" name="primaryIncome" class="primaryIncome form-control" id="primaryIncome">
+                     </div>
+                     <button type="button" class="btn btn-previous"><i class="fa fa-angle-left"></i> Previous</button>
+                     <button type="button" class="btn btn-next">Next <i class="fa fa-angle-right"></i></button>
+                  </fieldset>
+                  <fieldset>
+                     <h4>DISPOSITION OF PROPERTY</h4>
+                     <!-- <span class="step">(Step 3 / 7)</span> FOR USE IN MULTISTEP FORM-->
+                     <h3>(In other words, “who should get what?”)<br />
+                        Specific items of property (if any) to be left to named persons:
+                        (Note: many times people will leave everything they own to one or more people without specifying individual items of property.  If you desire to handle your estate that way, you may skip this section.)
+                     </h3>
+                     <h2>ITEM:</h2>
+                     <div class="form-group">
+                        <label for="fst-desItem">Description of item(s):</label><br>
+                        <input type="text" name="fst-desItem" class="fst-desItem form-control" id="fst-desItem">
+                     </div>
+                     <div class="form-group">
+                        <label for="fst-item-heir">Name of person to receive this property:</label><br>
+                        <input type="text" name="fst-item-heir" class="fst-item-heir form-control" id="fst-item-heir">
+                     </div>
+                     <div class="form-group">
+                        <label for="fst-heir-relation">How is this person related to you?</label><br>
+                        <input type="text" name="fst-heir-relation" class="fst-heir-relation form-control" id="fst-heir-relation">
+                     </div>
+                     <h2>ITEM:</h2>
+                     <div class="form-group">
+                        <label for="sec-desItem">Description of item(s):</label><br>
+                        <input type="text" name="sec-desItem" class="sec-desItem form-control" id="sec-desItem">
+                     </div>
+                     <div class="form-group">
+                        <label for="sec-item-heir">Name of person to receive this property:</label><br>
+                        <input type="text" name="sec-item-heir" class="sec-item-heir form-control" id="sec-item-heir">
+                     </div>
+                     <div class="form-group">
+                        <label for="sec-heir-relation">How is this person related to you?</label><br>
+                        <input type="text" name="sec-heir-relation" class="sec-heir-relation form-control" id="sec-heir-relation">
+                     </div>
+                     <h2>ITEM:</h2>
+                     <div class="form-group">
+                        <label for="third-desItem">Description of item(s):</label><br>
+                        <input type="text" name="third-desItem" class="third-desItem form-control" id="third-desItem">
+                     </div>
+                     <div class="form-group">
+                        <label for="third-item-heir">Name of person to receive this property:</label><br>
+                        <input type="text" name="third-item-heir" class="third-item-heir form-control" id="third-item-heir">
+                     </div>
+                     <div class="form-group">
+                        <label for="third-heir-relation">How is this person related to you?</label><br>
+                        <input type="text" name="third-heir-relation" class="third-heir-relation form-control" id="third-heir-relation">
+                     </div>
+                     <h3>Who do you want to receive the balance of your property?</h3>
+                     <div class="form-group">
+                        <label for="fst-balance-heir">NAME</label><br>
+                        <input type="text" name="fst-balance-heir" class="fst-balance-heir form-control" id="fst-balance-heir">
+                     </div>
+                     <div class="form-group">
+                        <label for="fst-percent">% of your estate:</label><br>
+                        <input type="text" name="fst-percent" class="fst-percent form-control" id="fst-percent">
+                     </div>
+                     <div class="form-group">
+                        <label for="fst-blnc-heir-relation">How is this person related to you?</label><br>
+                        <input type="text" name="fst-blnc-heir-relation" class="fst-blnc-heir-relation form-control" id="fst-blnc-heir-relation">
+                     </div>
+                     <h3>If this person dies before you do, who should get his/her share of your estate?</h3>
+                     <div class="form-group">
+                        <label for="fst-blnc-heir-heir">NAMES</label><br>
+                        <input type="text" name="fst-blnc-heir-heir" class="fst-blnc-heir-heir form-control" id="fst-blnc-heir-heir">
+                     </div>
+                     <div class="form-group">
+                        <label for="fst-blnc-heir-heir-relation">How is this person(s) related to you:</label><br>
+                        <input type="text" name="fst-blnc-heir-heir-relation" class="fst-blnc-heir-heir-relation form-control" id="fst-blnc-heir-heir-relation">
+                     </div>
+                     <h3>Second person, if any:</h3>
+                     <div class="form-group">
+                        <label for="sec-balance-heir">NAME</label><br>
+                        <input type="text" name="sec-balance-heir" class="sec-balance-heir form-control" id="sec-balance-heir">
+                     </div>
+                     <div class="form-group">
+                        <label for="sec-percent">% of your estate:</label><br>
+                        <input type="text" name="sec-percent" class="sec-percent form-control" id="sec-percent">
+                     </div>
+                     <div class="form-group">
+                        <label for="sec-blnc-heir-relation">How is this person(s) related to you:</label><br>
+                        <input type="text" name="sec-blnc-heir-relation" class="sec-blnc-heir-relation form-control" id="sec-blnc-heir-relation">
+                     </div>
+                     <h3>3.	Do you want any of your property to be held IN TRUST for a period of time after your death?</h3>
+                     <h4>For example:  until your spouse dies or until your children reach a certain age.  NOTE: Due to the complexity of trusts, if you have checked "yes" or "undecided" above, we will discuss the specific trust provisions in person or by phone.</h4>
+                     <div class="form-group">
+                        <label for="wantTrust">Yes or No</label><br>
+                        <input type="text" name="wantTrust" class="wantTrust form-control" id="wantTrust">
+                     </div>
+                     <button type="button" class="btn btn-previous"><i class="fa fa-angle-left"></i> Previous</button>
+                     <button type="button" class="btn btn-next">Next <i class="fa fa-angle-right"></i></button>
+                  </fieldset>
+                  <fieldset>
+                     <h2>WHO WILL HANDLE YOUR ESTATE?</h2>
+                     <!-- <span class="step">(Step 3 / 7)</span> FOR USE IN MULTISTEP FORM-->
+                     <h3>(EXECUTOR (Who will probate your will, sign any necessary tax returns, distribute your property, etc?)
+                     </h3>
+                     <h3>Primary Executor:</h3>
+                     <div class="form-group">
+                        <label for="primary-exec">Full Name:</label><br>
+                        <input type="text" name="primary-exec" class="primary-exec form-control" id="primary-exec">
+                     </div>
+                     <div class="form-group">
+                        <label for="primary-exec-social-sec">Social Security:</label><br>
+                        <input type="text" name="primary-exec-social-sec" class="primary-exec-social-sec" id="primary-exec-social-sec">
+                     </div>
+                     <div class="form-group">
+                        <label for="primary-exec-address">Address:</label><br>
+                        <input type="text" name="primary-exec-address" class="primary-exec-address form-control" id="primary-exec-address">
+                     </div>
+                     <div class="form-group">
+                        <label for="primary-exec-phone">Telephone:</label><br>
+                        <input type="text" name="telephone" class="primary-exec-phone form-control" id="primary-exec-phone">
+                     </div>
+                     <div class="form-group">
+                        <label for="primary-exec-w-phone">Work Telephone:</label><br>
+                        <input type="text" name="primary-exec-w-phone" class="primary-exec-w-phone form-control" id="primary-exec-w-phone">
+                     </div>
+                     <div class="form-group">
+                        <label for="primary-exec-relation">How is this person related to you?</label><br>
+                        <input type="text" name="primary-exec-relation" class="primary-exec-relation" id="primary-exec-relation">
+                     </div>
+                     <div class="form-group">
+                        <label for="primary-exec-bond-waived">Should the bond be waived?</label><br>
+                        <input type="text" name="primary-exec-bond-waived" class="primary-exec-bond-waived" id="primary-exec-bond-waived">
+                     </div>
+                     <div class="form-group">
+                        <label for="primary-exec-paid">Should this person be paid for serving as Executor? </label><br>
+                        <input type="text" name="primary-exec-paid" class="primary-exec-paid" id="primary-exec-paid">
+                     </div>
+                     <h3>Alternate Executor:</h3>
+                     <h4>(If the person named above is unable or unwilling to serve as your Executor, then who do you want to serve as Executor?)</h4>
+                     <div class="form-group">
+                        <label for="alt-exec">Full Name:</label><br>
+                        <input type="text" name="alt-exec" class="alt-exec form-control" id="alt-exec">
+                     </div>
+                     <div class="form-group">
+                        <label for="alt-exec-social-sec">Social Security:</label><br>
+                        <input type="text" name="alt-exec-social-sec" class="alt-exec-social-sec" id="alt-exec-social-sec">
+                     </div>
+                     <div class="form-group">
+                        <label for="alt-exec-address">Address:</label><br>
+                        <input type="text" name="alt-exec-address" class="alt-exec-address form-control" id="alt-exec-address">
+                     </div>
+                     <div class="form-group">
+                        <label for="alt-exec-phone">Telephone:</label><br>
+                        <input type="text" name="telephone" class="alt-exec-phone form-control" id="alt-exec-phone">
+                     </div>
+                     <div class="form-group">
+                        <label for="alt-exec-w-phone">Work Telephone:</label><br>
+                        <input type="text" name="alt-exec-w-phone" class="alt-exec-w-phone form-control" id="alt-exec-w-phone">
+                     </div>
+                     <div class="form-group">
+                        <label for="alt-exec-relation">How is this person related to you?</label><br>
+                        <input type="text" name="alt-exec-relation" class="alt-exec-relation" id="alt-exec-relation">
+                     </div>
+                     <div class="form-group">
+                        <label for="alt-exec-bond-waived">Should the bond be waived?</label><br>
+                        <input type="text" name="alt-exec-bond-waived" class="alt-exec-bond-waived" id="alt-exec-bond-waived">
+                     </div>
+                     <div class="form-group">
+                        <label for="alt-exec-paid">Should this person be paid for serving as Executor? </label><br>
+                        <input type="text" name="alt-exec-paid" class="alt-exec-paid" id="alt-exec-paid">
+                     </div>
+                     <button type="button" class="btn btn-previous"><i class="fa fa-angle-left"></i> Previous</button>
+                     <button type="button" class="btn btn-next">Next <i class="fa fa-angle-right"></i></button>
+                  </fieldset>
+                  <fieldset>
+                     <h2>GUARDIAN</h2>
+                     <!-- <span class="step">(Step 3 / 7)</span> FOR USE IN MULTISTEP FORM-->
+                     <h3>Who will take care of your minor children in the event of your death?  (We will discuss who will take care of your child's estate after you have completed this questionnaire)
+                     </h3>
+                     <h3>Primary Guardian</h3>
+                     <div class="form-group">
+                        <label for="primary-guardian">Full Name:</label><br>
+                        <input type="text" name="primary-guardian" class="primary-guardian form-control" id="primary-guardian">
+                     </div>
+                     <div class="form-group">
+                        <label for="primary-guardian-social-sec">Social Security:</label><br>
+                        <input type="text" name="primary-guardian-social-sec" class="primary-guardian-social-sec" id="primary-guardian-social-sec">
+                     </div>
+                     <div class="form-group">
+                        <label for="primary-guardian-address">Address:</label><br>
+                        <input type="text" name="primary-guardian-address" class="primary-guardian-address form-control" id="primary-guardian-address">
+                     </div>
+                     <div class="form-group">
+                        <label for="primary-guardian-phone">Telephone:</label><br>
+                        <input type="text" name="telephone" class="primary-guardian-phone form-control" id="primary-guardian-phone">
+                     </div>
+                     <div class="form-group">
+                        <label for="primary-guardian-w-phone">Work Telephone:</label><br>
+                        <input type="text" name="primary-guardian-w-phone" class="primary-guardian-w-phone form-control" id="primary-guardian-w-phone">
+                     </div>
+                     <div class="form-group">
+                        <label for="primary-guardian-relation">How is this person related to you?</label><br>
+                        <input type="text" name="primary-guardian-relation" class="primary-guardian-relation" id="primary-guardian-relationship">
+                     </div>
+                     <h3>Alternate Guardian:</h3>
+                     <h4>(If the primary guardian is unable or unwilling to serve, then who do you want to serve as Guardian?)</h4>
+                     <div class="form-group">
+                        <label for="alt-guardian">Full Name:</label><br>
+                        <input type="text" name="alt-guardian" class="alt-guardian form-control" id="alt-guardian">
+                     </div>
+                     <div class="form-group">
+                        <label for="alt-guardian-social-sec">Social Security:</label><br>
+                        <input type="text" name="alt-guardian-social-sec" class="alt-guardian-social-sec" id="alt-guardian-social-sec">
+                     </div>
+                     <div class="form-group">
+                        <label for="alt-guardian-address">Address:</label><br>
+                        <input type="text" name="alt-guardian-address" class="alt-guardian-address form-control" id="alt-guardian-address">
+                     </div>
+                     <div class="form-group">
+                        <label for="alt-guardian-phone">Telephone:</label><br>
+                        <input type="text" name="telephone" class="alt-guardian-phone form-control" id="alt-guardian-phone">
+                     </div>
+                     <div class="form-group">
+                        <label for="alt-guardian-w-phone">Work Telephone:</label><br>
+                        <input type="text" name="alt-guardian-w-phone" class="alt-guardian-w-phone form-control" id="alt-guardian-w-phone">
+                     </div>
+                     <div class="form-group">
+                        <label for="alt-guardian-relation">How is this person related to you?</label><br>
+                        <input type="text" name="alt-guardian-relation" class="alt-guardian-relation" id="alt-guardian-relationship">
+                     </div>
+                     <h3>TRUSTEE</h3>
+                     <h4>Who will manage and control the property placed in trust (if any)?  NOTE: If you are considering a Trust, we will discuss its terms and provisions after you have completed this questionnaire.</h4>
+                     <div class="form-group">
+                        <label for="primary-trustee">Full Name:</label><br>
+                        <input type="text" name="primary-trustee" class="primary-trustee form-control" id="primary-trustee">
+                     </div>
+                     <div class="form-group">
+                        <label for="primary-trustee-social-sec">Social Security:</label><br>
+                        <input type="text" name="primary-trustee-social-sec" class="primary-trustee-social-sec" id="primary-trustee-social-sec">
+                     </div>
+                     <div class="form-group">
+                        <label for="primary-trustee-address">Address:</label><br>
+                        <input type="text" name="primary-trustee-address" class="primary-trustee-address form-control" id="primary-trustee-address">
+                     </div>
+                     <div class="form-group">
+                        <label for="primary-trustee-phone">Telephone:</label><br>
+                        <input type="text" name="telephone" class="primary-trustee-phone form-control" id="primary-trustee-phone">
+                     </div>
+                     <div class="form-group">
+                        <label for="primary-trustee-w-phone">Work Telephone:</label><br>
+                        <input type="text" name="primary-trustee-w-phone" class="primary-trustee-w-phone form-control" id="primary-trustee-w-phone">
+                     </div>
+                     <div class="form-group">
+                        <label for="primary-trustee-relation">How is this person related to you?</label><br>
+                        <input type="text" name="primary-trustee-relation" class="primary-trustee-relation" id="primary-trustee-relationship">
+                     </div>
+                     <div class="form-group">
+                        <label for="primary-trustee-paid">Should this person be paid for serving as Trustee? </label><br>
+                        <input type="text" name="primary-trustee-paid" class="primary-trustee-paid" id="primary-trustee-paid">
+                     </div>
+                     <h3>Alternate Trustee </h3>
+                     <h4>(If the person named above is unable or unwilling to serve as Trustee, then who do you want to serve as Trustee?)</h4>
+                     <div class="form-group">
+                        <label for="alt-trustee">Full Name:</label><br>
+                        <input type="text" name="alt-trustee" class="alt-trustee form-control" id="alt-trustee">
+                     </div>
+                     <div class="form-group">
+                        <label for="alt-trustee-social-sec">Social Security:</label><br>
+                        <input type="text" name="alt-trustee-social-sec" class="alt-trustee-social-sec" id="alt-trustee-social-sec">
+                     </div>
+                     <div class="form-group">
+                        <label for="alt-trustee-address">Address:</label><br>
+                        <input type="text" name="alt-trustee-address" class="alt-trustee-address form-control" id="alt-trustee-address">
+                     </div>
+                     <div class="form-group">
+                        <label for="alt-trustee-phone">Telephone:</label><br>
+                        <input type="text" name="telephone" class="alt-trustee-phone form-control" id="alt-trustee-phone">
+                     </div>
+                     <div class="form-group">
+                        <label for="alt-trustee-w-phone">Work Telephone:</label><br>
+                        <input type="text" name="alt-trustee-w-phone" class="alt-trustee-w-phone form-control" id="alt-trustee-w-phone">
+                     </div>
+                     <div class="form-group">
+                        <label for="alt-trustee-relation">How is this person related to you?</label><br>
+                        <input type="text" name="alt-trustee-relation" class="alt-trustee-relation" id="alt-trustee-relationship">
+                     </div>
+                     <div class="form-group">
+                        <label for="alt-trustee-paid">Should this person be paid for serving as Trustee? </label><br>
+                        <input type="text" name="alt-trustee-paid" class="alt-trustee-paid" id="alt-trustee-paid">
+                     </div>
+                     <button type="button" class="btn btn-previous"><i class="fa fa-angle-left"></i> Previous</button>
+                     <button type="button" class="btn btn-next">Next <i class="fa fa-angle-right"></i></button>
+                  </fieldset>
+                  <fieldset>
+                  <div class="form-group">
+                     <label for="addtionalInfo">QUESTIONS, COMMENTS, OR ADDITIONAL INFORMATION?</label><br>
+                     <input type="text" name="addtionalInfo" class="addtionalInfo" id="addtionalInfo">
+                  </div>
+                  <br>
+                  <button type="button" class="btn btn-previous"><i class="fa fa-angle-left"></i> Previous</button>
+                  <button type="button" class="btn btn-next">Send Document</button>
+                  </fieldset>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- <header>
+         <h1>Last Will & Testament</h1>
+         <h2>Please fill this out to prepare for your consultation</h2>
+         </header>
+         <form class="document-form">
+         <h3> Personal Information </h3>
+         <p class='client-personal'>
+            <div class="col-sm-4">
+         First Name:</br>
+         Last Name:</br>
+         Middle Name:</br>
+         suffix:</br>
+         Social Security:</br>
+         Address:</br>
+         Telephone:</br>
+         Heir:</br>
+         </div>
+         <div class="col-sm-8">
+           <input class='pi' id='fname' type="text"><br>
+           <input class='pi' id='lname' type="text"><br>
+           <input class='pi' id='mname' type="text"><br>
+           <input class='pi' id='suffix' type="text"><br>
+           <input class='pi' id='socialsec' type="text"><br>
+           <input class='pi' id='address' type="text"><br>
+           <input class='pi' id='phone' type="text"><br>
+           <input class='pi' id='heir' type="text"><br>
+         </div>
+         </p>
+         </form> -->
+      <div class="box"></div>
+      <!-- </div> -->
+      <!-- Javascript -->
+      <script src="assets/js/jquery-1.11.1.min.js"></script>
+      <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+      <script src="assets/js/jquery.backstretch.min.js"></script>
+      <script src="assets/js/scripts.js"></script>
+      <!-- Original links -->
+      <!-- <script src="/libs/jquery/dist/jquery.min.js"></script> -->
+      <script src="app.js"></script>
+   </body>
 </html>

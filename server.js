@@ -48,19 +48,19 @@ app.post('/document', (req, res, next) => {
     .catch(err => {
       res.status(500).json(err);
     });
-  //schema end
-  // estateWordDoc(req.body);
-  //   //nodemailer
-  //     let emailData = {
-  //     from: ALERT_FROM_EMAIL,
-  //     to: ALERT_TO_EMAIL,
-  //     subject: `ESTATE DOCUMENT FROM: ${req.body.firstName} ${req.body.lastName}`,
-  //     attachments: [{
-  //       filename: 'output.docx',
-  //       content: fs.createReadStream(__dirname + '/doc-sender-catcher/output.docx')
-  //     }]
-  //   };
-  //   sendEmail(emailData);
+  // schema end
+  estateWordDoc(req.body);
+    //nodemailer
+      let emailData = {
+      from: ALERT_FROM_EMAIL,
+      to: ALERT_TO_EMAIL,
+      subject: `ESTATE DOCUMENT FROM: ${req.body.firstName} ${req.body.lastName}`,
+      attachments: [{
+        filename: 'output.docx',
+        content: fs.createReadStream(__dirname + '/doc-sender-catcher/output.docx')
+      }]
+    };
+    sendEmail(emailData);
   });
 
   app.get('/', (req, res) => {

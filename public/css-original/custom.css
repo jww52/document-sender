@@ -1,0 +1,32 @@
+* {
+  box-sizing: border-box;
+  text-align: center;
+}
+
+body {
+    background-color: navy;
+    color: white;
+  }
+
+header {
+
+  margin-top: 0px;
+  height: 140px;
+  background-color: orange;
+  font-size:
+}
+
+h1 {
+  padding-top: 5px;
+}
+
+.document-form {
+
+}
+.pi {
+
+}
+
+button {
+  background-color: orange;
+}
