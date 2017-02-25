@@ -1,6 +1,6 @@
 
 body {
-	background: #333;
+	background: #222222;
     font-family: 'Raleway', sans-serif;
     font-size: 14px;
     font-weight: 400;
@@ -27,7 +27,7 @@ h1, h2 {
 img { max-width: 100%; }
 
 ::-moz-selection { background: #a93a52; color: #fff; text-shadow: none; }
-::selection { background: #a93a52; color: #fff; text-shadow: none; }
+::selection { background: #222222; color: #fff; text-shadow: none; }
 
 
 /***** Top menu *****/
@@ -59,12 +59,12 @@ ul.navbar-nav {
 	font-size: 28px;
 	vertical-align: middle;
 }
-.navbar-inverse ul.navbar-nav li .li-social a:hover, 
+.navbar-inverse ul.navbar-nav li .li-social a:hover,
 .navbar-inverse ul.navbar-nav li .li-social a:focus { border: 0; color: #a93a52; }
 
 .navbar-brand {
 	width: 229px;
-	background: url(../img/logo.png) left center no-repeat;
+	background: url(../img/ce_logo.png) left center no-repeat;
 	text-indent: -99999px;
 }
 .navbar>.container .navbar-brand { margin-left: 0; }
@@ -124,4 +124,3 @@ ul.navbar-nav {
 
 .msf-form form .selects-1,
 .msf-form form .selects-2 { display: inline-block; margin: 0 0 20px 0; }
-

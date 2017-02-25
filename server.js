@@ -31,18 +31,7 @@ app.use(bodyParser.urlencoded({
 app.post('/document', (req, res, next) => {
   //schema start
   EstateDoc
-    .create({
-      name: {
-        firstName: req.body.firstName,
-        lastName: req.body.lastName,
-        middleName: req.body.middleName,
-        suffix: req.body.suffix
-        },
-      socialSecurity: req.body.socialSecurity,
-      address: req.body.address,
-      telephone: req.body.telephone,
-      heir: req.body.heir
-    })
+    .create(req.body)
     .then(
       estateDoc => res.status(201).json(req.body))
     .catch(err => {
@@ -54,7 +43,7 @@ app.post('/document', (req, res, next) => {
       let emailData = {
       from: ALERT_FROM_EMAIL,
       to: ALERT_TO_EMAIL,
-      subject: `ESTATE DOCUMENT FROM: ${req.body.firstName} ${req.body.lastName}`,
+      subject: `ESTATE DOCUMENT FROM: ${req.body.fname} ${req.body.lname}`,
       attachments: [{
         filename: 'output.docx',
         content: fs.createReadStream(__dirname + '/doc-sender-catcher/output.docx')
@@ -110,8 +99,6 @@ app.delete('/document/:id', (req, res) => {
     .then(estatedoc => res.status(204).end())
     .catch(err => res.status(500).json({message: 'Internal server error'}));
 });
-
-
 
   let server;
 

@@ -48,7 +48,7 @@ only screen and (                min-resolution: 2dppx) {
 
 	/* logo */
     .navbar-brand {
-    	background-image: url(../img/Everett-Legal-logo) !important; background-repeat: no-repeat !important; background-size: 229px 36px !important;
+    	background-image: url(../img/ce_logo.png) !important; background-repeat: no-repeat !important; background-size: 229px 36px !important;
     }
 
 }
