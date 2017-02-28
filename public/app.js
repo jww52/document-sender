@@ -153,7 +153,7 @@ $('#document-form').submit(function (event) {
         })
         .done(function (data) {
 
-            $('.box').append(`<h1>` + 'THANK YOU, YOUR DOCUMENT WAS SENT');
+            $('.box').append(`<h1>` + 'THANK YOU, YOUR DOCUMENT WAS SENT').css("text-align","center");
 
         }).fail(function (error) {
             console.log(error);

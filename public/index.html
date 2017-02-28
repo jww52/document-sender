@@ -41,9 +41,11 @@
                      Follow us:
                      </span>
                      <span class="li-social">
-                     <!-- <a href="http://www.facebook.com/pages/Azmindcom/196582707093191" target="_blank"><i class="fa fa-facebook"></i></a> -->
+                     <a href="http://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+                     <!-- <a href="http://www.facebook.com/pages/Azmindcom/196582707093191" -->
                      <a href="http://twitter.com/clayton_at_law" target="_blank"><i class="fa fa-twitter"></i></a>
-                     <!-- <a href="https://plus.google.com/101131425868807087570" target="_blank"><i class="fa fa-google-plus"></i></a> -->
+                     <a href="https://plus.google.com/" target="_blank"><i class="fa fa-google-plus"></i></a>
+                     <!-- a href="https://plus.google.com/101131425868807087570" -->
                      </span>
                   </li>
                </ul>
@@ -61,7 +63,7 @@
             <div class="row">
                <div class="col-sm-12 description-text">
                   <p>
-                     This is a secure process that will create a document emailed to both you and your attorney for use with the consultation.
+                     This is a secure process that will create a document emailed to your attorney for use with the consultation.
                   </p>
                   <div class="divider-1">. . . . . . . . . . . . . . . .</div>
                </div>
@@ -81,8 +83,8 @@
                <div class="col-sm-12 msf-form">
                   <form role="form" method="post" class="form-inline" id="document-form">
                   <fieldset>
-                     <h4>Personal Information </h4>
-                     <!-- <span class="step">(Step 1 / 7)</span> FOR USE IN MULTISTEP FORM-->
+                     <h4><span class="step">(Step 1 / 9)</span></h4>
+                     <h4>Personal Information</h4>
                      <h3>Yourself:</h3>
                      <div class="form-group">
                         <label for="first-name">First Name:</label><br>
@@ -161,7 +163,11 @@
                         <label for="marriageDate">Date of Marriage:</label><br>
                         <input type="text" name="marriageDate" class="marriageDate form-control" id="marriageDate">
                      </div>
-                     <h3>Your Children:</h3>
+                     <button type="button" class="btn btn-next">Next <i class="fa fa-angle-right"></i></button>
+                   </fieldset>
+                   <fieldset>
+                       <h4><span class="step">(Step 2 / 9)</span></h4>
+                       <h3>Your Children:</h3>
                      <h2>1. Child</h2>
                      <div class="form-group">
                         <label for="fst_child_fname">First Name:</label><br>
@@ -321,7 +327,12 @@
                         <label for="third_child_chldrnAges">Age(s):</label><br>
                         <input type="text" name="third_child_chldrnAges" class="third_child_chldrnAges" id="third_child_chldrnAges">
                      </div>
-                     <h4>Additional Personal Information</h4>
+                     <button type="button" class="btn btn-previous"><i class="fa fa-angle-left"></i> Previous</button>
+                     <button type="button" class="btn btn-next">Next <i class="fa fa-angle-right"></i></button>
+                   </fieldset>
+                   <fieldset>
+                     <h4><span class="step">(Step 3 / 9)</span></h4>
+                     <h3>Additional Personal Information</h3>
                      <div class="form-group">
                         <label for="prev_married">Have you previously been married?</label><br>
                         <input type="text" name="prev_married" class="prev_married form-control" id="prev_married">
@@ -350,12 +361,12 @@
                         <label for="currentWill">Do you have a Will now?</label><br>
                         <input type="text" name="currentWill" class="currentWill form-control" id="currentWill">
                      </div>
-                     <!-- FOR USE IN MULTI STEP FORM MOVED THIS FROM BUTTON ELEMENT _ JW<i class="fa fa-angle-right"></i> -->
+                     <button type="button" class="btn btn-previous"><i class="fa fa-angle-left"></i> Previous</button>
                      <button type="button" class="btn btn-next">Next <i class="fa fa-angle-right"></i></button>
                   </fieldset>
                   <fieldset>
+                    <h4><span class="step">(Step 4 / 9)</span></h4>
                      <h4>Financial Information</h4>
-                     <!-- <span class="step">(Step 3 / 7)</span> FOR USE IN MULTISTEP FORM-->
                      <div class="form-group">
                         <label for="excd600">Does the total value of your estate (including life insurance and property owned by your spouse) exceed $600,000?</label><br>
                         <input type="text" name="excd600" class="excd600 form-control" id="excd600">
@@ -400,8 +411,8 @@
                      <button type="button" class="btn btn-next">Next <i class="fa fa-angle-right"></i></button>
                   </fieldset>
                   <fieldset>
-                     <h4>DISPOSITION OF PROPERTY</h4>
-                     <!-- <span class="step">(Step 3 / 7)</span> FOR USE IN MULTISTEP FORM-->
+                    <h4><span class="step">(Step 5 / 9)</span></h4>
+                     <h3>DISPOSITION OF PROPERTY</h3>
                      <h3>(In other words, “who should get what?”)<br />
                         Specific items of property (if any) to be left to named persons:
                         (Note: many times people will leave everything they own to one or more people without specifying individual items of property.  If you desire to handle your estate that way, you may skip this section.)
@@ -490,8 +501,8 @@
                      <button type="button" class="btn btn-next">Next <i class="fa fa-angle-right"></i></button>
                   </fieldset>
                   <fieldset>
-                     <h2>WHO WILL HANDLE YOUR ESTATE?</h2>
-                     <!-- <span class="step">(Step 3 / 7)</span> FOR USE IN MULTISTEP FORM-->
+                    <h4><span class="step">(Step 6 / 9)</span></h4>
+                     <h3>WHO WILL HANDLE YOUR ESTATE?</h3>
                      <h3>(EXECUTOR (Who will probate your will, sign any necessary tax returns, distribute your property, etc?)
                      </h3>
                      <h3>Primary Executor:</h3>
@@ -565,8 +576,8 @@
                      <button type="button" class="btn btn-next">Next <i class="fa fa-angle-right"></i></button>
                   </fieldset>
                   <fieldset>
-                     <h2>GUARDIAN</h2>
-                     <!-- <span class="step">(Step 3 / 7)</span> FOR USE IN MULTISTEP FORM-->
+                    <h4><span class="step">(Step 7 / 9)</span></h4>
+                     <h3>GUARDIAN</h3>
                      <h3>Who will take care of your minor children in the event of your death?  (We will discuss who will take care of your child's estate after you have completed this questionnaire)
                      </h3>
                      <h3>Primary Guardian</h3>
@@ -620,6 +631,11 @@
                         <label for="alt_guardian_relation">How is this person related to you?</label><br>
                         <input type="text" name="alt_guardian_relation" class="alt_guardian_relation" id="alt_guardian_relationship">
                      </div>
+                     <button type="button" class="btn btn-previous"><i class="fa fa-angle-left"></i> Previous</button>
+                     <button type="button" class="btn btn-next">Next <i class="fa fa-angle-right"></i></button>
+                  </fieldset>
+                  <fieldset>
+                    <h4><span class="step">(Step 8 / 9)</span></h4>
                      <h3>TRUSTEE</h3>
                      <h4>Who will manage and control the property placed in trust (if any)?  NOTE: If you are considering a Trust, we will discuss its terms and provisions after you have completed this questionnaire.</h4>
                      <div class="form-group">
@@ -685,12 +701,13 @@
                   </fieldset>
                   <fieldset>
                   <div class="form-group">
+                      <h4><span class="step">(Step 9 / 9)</span></h4>
                      <label for="addtionalInfo">QUESTIONS, COMMENTS, OR ADDITIONAL INFORMATION?</label><br>
-                     <input type="text" name="addtionalInfo" class="addtionalInfo" id="addtionalInfo">
+                     <textarea placeholder="Enter message" type="text" name="addtionalInfo" class="addtionalInfo" id="addtionalInfo"></textarea>
                   </div>
                   <br>
                   <button type="button" class="btn btn-previous"><i class="fa fa-angle-left"></i> Previous</button>
-                  <button type="submit" class="btn btn-send" id="main_send">Send Document</button>
+                  <button type="submit" class="btn btn-send" id="main_send">Send Form</button>
                   </fieldset>
                   </form>
                </div>
