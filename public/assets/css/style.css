@@ -46,6 +46,11 @@ ul.navbar-nav {
 	color: #fff;
 }
 
+/*NEW LOGO BACKGROUND NAVBAR COLOR ADJUSTMENT*/
+nav.navbar.navbar-inverse {
+	background-color: #222222;
+}
+
 .navbar-inverse ul.navbar-nav li { padding-top: 8px; padding-bottom: 8px; }
 
 .navbar-inverse ul.navbar-nav li .li-text { margin-right: 10px; opacity: 0.8; }

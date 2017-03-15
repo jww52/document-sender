@@ -7,8 +7,11 @@ const bodyParser = require('body-parser');
 const fs = require('fs');
 const morgan = require('morgan');
 const _ = require('lodash');
-require('dotenv').config();
 
+require('dotenv').config();
+const keyPublishable = process.env.PUBLISHABLE_KEY;
+const keySecret = process.env.SECRET_KEY;
+const stripe = require('stripe')(keySecret);
 const {mongoose} = require('./db/mongoose');
 const {ObjectId} = require('mongodb');
 const {ALERT_FROM_EMAIL, ALERT_FROM_NAME, ALERT_TO_EMAIL} = process.env;
@@ -28,6 +31,29 @@ app.use(bodyParser.urlencoded({
     extended: false
 }));
 
+//stripe
+  app.get("/", (req, res) =>
+    res.render(path.join(__dirname, "./public/index.html", keyPublishable)));
+
+  app.post("/charge", (req, res) => {
+    let amount = 7500;
+
+    stripe.customers.create({
+      email: req.body.stripeEmail,
+      source: req.body.stripeToken
+    })
+      .then(customer =>
+        stripe.charges.create({
+          amount,
+          description: "Estate Document Creation",
+          currency: "usd",
+          customer: customer.id
+        }))
+        .then(charge => res.status(200).sendFile(path.join(__dirname, './public/estateForm.html')));
+    });
+  // app.get('/form', (req, res) => {
+  //     res.status(200).sendFile(path.join(__dirname, './public/index.html'));
+  // });
 app.post('/document', (req, res, next) => {
   //schema start
   EstateDoc
@@ -50,10 +76,6 @@ app.post('/document', (req, res, next) => {
       }]
     };
     sendEmail(emailData);
-  });
-
-  app.get('/', (req, res) => {
-      res.status(200).sendFile(path.join(__dirname, './public/index.html'));
   });
 
 app.get('/document/:id', (req, res) => {
